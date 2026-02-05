@@ -1,0 +1,12 @@
+d_hidden: 512
+seq_loss_weight: 0.5
+q_halt_loss_weight: 0.5
+deep_supervision_steps: 16
+deep_supervision_exploration_prob: 0.1
+n_layers: 2
+n_reasoning_steps: 3
+n_latent_steps: 6
+backbone: mlp
+n_heads: 8
+tie_embeddings: true
+dropout: 0.1

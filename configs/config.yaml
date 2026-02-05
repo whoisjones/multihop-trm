@@ -1,0 +1,13 @@
+defaults:
+  - model: trm
+  - data: sudoku
+  - training: default
+  - _self_
+
+hydra:
+  run:
+    dir: outputs/run_${now:%Y%m%d_%H%M%S}
+
+seed: 42
+log_level: INFO
+project_name: multihop-trm

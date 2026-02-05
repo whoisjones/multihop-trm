@@ -1,5 +1,7 @@
 # Data folder
 data/
+outputs/
+wandb/
 
 # IDE
 .vscode/
