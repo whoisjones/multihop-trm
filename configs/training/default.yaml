@@ -1,12 +1,25 @@
-batch_size: 128
+batch_size: 768
 num_steps: 50000
-warmup_steps: 1000
+warmup_steps: 2000
 eval_interval: 5000
-log_interval: 20
-learning_rate: 1e-4
-max_norm: 1.0
-weight_decay: 0.01
-optimizer_type: adamw
-scheduler_type: constant_with_warmup
-mixed_precision: bf16
+log_interval: 10
 
+optimizer:
+  _target_: adam_atan2_pytorch.AdamAtan2
+  lr: 1e-4
+  weight_decay: 1.0
+  betas: [0.9, 0.95]
+
+puzzle_optimizer:
+  _target_: src.sparse_sign_optimizer.SparseEmbeddingSignSGD
+  lr: 1e-2
+  weight_decay: 1.0
+
+scheduler: constant_with_warmup
+puzzle_scheduler: constant_with_warmup
+
+max_norm: 1.0
+ema: true
+ema_mu: 0.999
+mixed_precision: bf16
+compile_model: false
